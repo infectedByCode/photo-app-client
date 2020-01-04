@@ -74,6 +74,7 @@
 </template>
 
 <script>
+import { auth } from "../firebaseConfig";
 import * as api from "../api";
 import {
   checkName,
@@ -114,7 +115,17 @@ export default {
       this.users = users;
     });
   },
-  updated() {}
+  mounted() {
+    // Working.... Move to suitable method and work on locking down pages
+    auth
+      .createUserWithEmailAndPassword("me@me.com", "helloworld")
+      .then(response => {
+        this.$store.state.loggedIn = true;
+        alert(JSON.stringify(this.$store.state.loggedIn));
+        alert(JSON.stringify(response.user.uid));
+      })
+      .catch(alert);
+  }
 };
 </script>
 
