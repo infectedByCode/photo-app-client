@@ -29,4 +29,25 @@ function checkUsername(e, username) {
   doesUserExist ? (this.errTakenUsername = 'Username is taken') : (this.errTakenUsername = '');
 }
 
-export { checkUsername, checkName };
+function checkEmail(e, email) {
+  email = email.trim();
+
+  const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  !emailRegex.test(email) && this.email !== '' ? (this.errEmail = 'Please enter a valid email.') : (this.errEmail = '');
+}
+
+function checkPasswords(e, password, confirmPassword) {
+  password = password.trim();
+  confirmPassword = confirmPassword.trim();
+
+  const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
+  if (password.length < 8) this.errPassword = 'Please enter a password with 8 or characters.';
+  else if (!passwordRegex.test(password))
+    this.errPassword = 'Please include upper and lowercase characters, a number and a special character';
+  else if (password !== confirmPassword) this.errPassword = 'Passwords do not match.';
+  else this.errPassword = '';
+}
+
+export { checkUsername, checkName, checkEmail, checkPasswords };
