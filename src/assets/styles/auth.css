@@ -1,0 +1,65 @@
+.valid {
+  background-color: lightgreen;
+}
+
+.invalid {
+  background-color: lightcoral;
+}
+
+.error {
+  color: lightcoral;
+  font-size: 1.4em;
+}
+
+#auth {
+  background: var(--alt-bg-color) url('~@/assets/images/auth.jpg') no-repeat fixed center;
+  font-family: 'Cabin', sans-serif;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#auth form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--alt-bg-color);
+  background-color: var(--alt-bg-color-70);
+  padding: 3% 0;
+  width: 60%;
+  margin: 7.5% auto;
+}
+
+#auth input,
+#auth label {
+  width: 60%;
+  display: block;
+  margin: 0.2% auto;
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+
+#auth button {
+  width: 35%;
+  margin: 0.75% auto;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  background-color: var(--main-bg-color);
+  color: var(--alt-text-color);
+  border: none;
+  border-radius: 10px;
+  padding: 1%;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+#auth .logo {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 3em;
+  line-height: 1.2em;
+}
