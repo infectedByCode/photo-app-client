@@ -1,14 +1,75 @@
-h3 {
-  margin: 40px 0 0;
+/* #FFF3D9 - Off white (255,243,217) 
+#FFE6B3 - beige (255, 230, 179);
+#47AAD9 - mid blue (71, 170, 217);
+#2E6E8D - darker blue (46,110,141) 
+#153240 - midnight  (21,50,64) */
+
+@import url('https://fonts.googleapis.com/css?family=Cabin|Gochi+Hand&display=swap');
+
+:root {
+  --main-bg-color: rgb(71, 170, 217);
+  --alt-bg-color: rgb(255, 243, 217);
+  --alt-bg-color-70: rgba(255, 243, 217, 0.7);
+  --main-text-color: rgb(21, 50, 64);
+  --alt-text-color: rgb(255, 243, 217);
+  --active-text-color: rgb(46, 110, 141);
 }
-ul {
-  list-style-type: none;
+
+* {
   padding: 0;
+  margin: 0;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+body {
+  background: url('~@/assets/images/home1.jpg') no-repeat fixed center;
+  font-family: 'Cabin', sans-serif;
 }
-a {
-  color: #42b983;
+
+#jumbotron {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--main-bg-color);
+  background-color: var(--alt-bg-color-70);
+  padding: 3% 0;
+  width: 60%;
+  margin: 12.5% auto;
+}
+
+#jumbotron h1 {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 5em;
+  line-height: 1.2em;
+}
+
+#jumbotron h2 {
+  font-size: 2.3em;
+  line-height: 1.7em;
+}
+
+#jumbotron button {
+  width: 40%;
+  margin: 1.5% auto;
+  background-color: var(--main-bg-color);
+  color: var(--alt-text-color);
+  border: none;
+  border-radius: 10px;
+  padding: 0.75%;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+#jumbotron a {
+  outline: none;
+  text-decoration: underline;
+  color: var(--main-text-color);
+}
+
+#jumbotron a:hover {
+  color: var(--active-text-color);
+}
+
+#jumbotron a:visited {
+  color: none;
 }
