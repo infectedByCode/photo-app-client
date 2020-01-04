@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main id="home">
     <section id="jumbotron">
       <h1>{{ msg }}</h1>
       <h2>Travel. Enjoy. Share.</h2>

@@ -20,9 +20,16 @@
   margin: 0;
 }
 
-body {
+#home {
   background: url('~@/assets/images/home1.jpg') no-repeat fixed center;
   font-family: 'Cabin', sans-serif;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 #jumbotron {
