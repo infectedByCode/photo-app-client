@@ -43,7 +43,8 @@ function checkPasswords(e, password, confirmPassword) {
 
   const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
-  if (password.length < 8) this.errPassword = 'Please enter a password with 8 or characters.';
+  if (!password.length && !confirmPassword.length) this.errPassword = '';
+  else if (password.length < 8) this.errPassword = 'Please enter a password with 8 or characters.';
   else if (!passwordRegex.test(password))
     this.errPassword = 'Please include upper and lowercase characters, a number and a special character';
   else if (password !== confirmPassword) this.errPassword = 'Passwords do not match.';
