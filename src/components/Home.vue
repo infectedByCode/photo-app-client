@@ -4,7 +4,7 @@
       <h1>{{ msg }}</h1>
       <h2>Travel. Enjoy. Share.</h2>
       <button>Login</button>
-      <a href="#">Not a member? Sign up here.</a>
+      <router-link to="/signup">Not a member? Sign up here.</router-link>
     </section>
   </main>
 </template>
