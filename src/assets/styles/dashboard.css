@@ -1,0 +1,78 @@
+#account-page {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#user-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--alt-bg-color);
+  background-color: var(--alt-bg-color-70);
+  padding: 3% 0;
+  width: 80%;
+  margin: 5% auto;
+}
+
+#user-profile h1 {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 5em;
+  line-height: 1.2em;
+}
+
+#user-profile h2 {
+  font-size: 2.3em;
+  line-height: 1.7em;
+}
+
+#user-profile h3 {
+  text-align: left;
+  padding: 1% 0;
+  font-size: 1.6em;
+  line-height: 1.5em;
+}
+
+#user-profile form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#user-profile input,
+#user-profile label {
+  width: 100%;
+  text-align: left;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+#user-profile input {
+  display: block;
+  max-width: 40%;
+}
+
+#user-profile form .btn-primary {
+  width: 40%;
+  margin: 1.5% 0;
+  background-color: var(--main-bg-color);
+  color: var(--alt-text-color);
+  border: none;
+  border-radius: 10px;
+  padding: 0.75%;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-decoration: none;
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+
+#user-profile form .btn-primary:hover {
+  color: var(--main-text-color);
+}

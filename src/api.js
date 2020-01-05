@@ -22,3 +22,11 @@ exports.getUserByID = async user_id => {
   } = await axios.get(`${baseURL}/users/${user_id}`);
   return user;
 };
+
+exports.updateUserByID = async (user_id, userData) => {
+  const {
+    data: { user }
+  } = await axios.patch(`${baseURL}/users/${user_id}`, userData);
+
+  return user;
+};
