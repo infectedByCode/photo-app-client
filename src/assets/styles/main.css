@@ -1,0 +1,42 @@
+nav {
+  background: var(--main-bg-color);
+  position: fixed;
+  width: 100%;
+}
+
+nav button {
+  font-family: 'Gochi Hand', cursive;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: transparent;
+  float: right;
+  padding: 0 2.5%;
+  line-height: 1.2em;
+  font-size: 3em;
+}
+
+nav a {
+  font-family: 'Gochi Hand', cursive;
+  color: var(--main-text-color);
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: var(--main-text-color);
+}
+
+nav a:hover {
+  color: var(--alt-text-color);
+}
+
+nav .logo {
+  font-family: 'Gochi Hand', cursive;
+  color: var(--main-text-color);
+  font-size: 3em;
+  line-height: 1.2em;
+  padding: 0 2.5%;
+  float: left;
+}
