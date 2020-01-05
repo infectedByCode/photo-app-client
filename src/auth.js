@@ -10,8 +10,7 @@ function createUser(e, email, password, first_name, last_name, username) {
       const uuid = response.user.uid;
 
       api.postUser(uuid, email, first_name, last_name, username).then(() => {
-        this.$router.push('/');
-
+        this.$router.go('/account');
         return uuid;
       });
     })
@@ -29,7 +28,9 @@ function loginUser(e, email, password) {
   auth
     .signInWithEmailAndPassword(email, password)
     .then(response => {
-      if (response) this.$router.push('/account');
+      if (response) {
+        this.$router.go('/account');
+      }
     })
     .catch(err => {
       if (err) this.errLogin = 'Something has gone wrong. Check your username and password';
@@ -40,7 +41,7 @@ function logoutUser() {
   auth
     .signOut()
     .then(() => {
-      this.$router.push('/login');
+      this.$router.go('/');
     })
     .catch(err => err);
 }
