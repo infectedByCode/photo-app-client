@@ -116,7 +116,7 @@
 <script>
 import * as api from '../api';
 import { checkName, checkUsername, checkEmail, checkPasswords } from '../utils/utils';
-import { createUser } from '@/auth.js';
+import { createUser } from '../auth';
 
 export default {
   name: 'Auth',

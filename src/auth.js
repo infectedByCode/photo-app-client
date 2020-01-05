@@ -16,18 +16,35 @@ function createUser(e, email, password, first_name, last_name, username) {
     })
     .then(uuid => {
       api.postUser(uuid, email, first_name, last_name, username).then(() => {
-        this.firstName = '';
-        this.lastName = '';
-        this.username = '';
-        this.email = '';
-        this.password = '';
-        this.confirmPassword = '';
+        this.$router.push('/');
       });
     })
-    .then(() => {
+    .catch(err => err);
+}
+
+function loginUser(e, email, password) {
+  e.preventDefault();
+
+  auth
+    .signInWithEmailAndPassword(email, password)
+    .then(response => {
+      const uuid = response.user.uid;
+
+      this.$store.state.loggedIn = true;
+      this.$store.state.user = uuid;
+
       this.$router.push('/');
     })
     .catch(err => err);
 }
 
-export { createUser };
+function logoutUser() {
+  auth
+    .signOut()
+    .then(() => {
+      this.$router.push('/login');
+    })
+    .catch(err => err);
+}
+
+export { createUser, loginUser, logoutUser };
