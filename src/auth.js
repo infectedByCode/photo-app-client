@@ -29,7 +29,7 @@ function loginUser(e, email, password) {
   auth
     .signInWithEmailAndPassword(email, password)
     .then(response => {
-      if (response) this.$router.push('/');
+      if (response) this.$router.push('/account');
     })
     .catch(err => {
       if (err) this.errLogin = 'Something has gone wrong. Check your username and password';
