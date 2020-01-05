@@ -2,6 +2,7 @@ nav {
   background: var(--main-bg-color);
   position: fixed;
   width: 100%;
+  z-index: 1 !important;
 }
 
 nav button {

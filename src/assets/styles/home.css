@@ -59,6 +59,8 @@
   outline: none;
   text-decoration: underline;
   color: var(--main-text-color);
+  font-size: 1.5em;
+  line-height: 1.7em;
 }
 
 #jumbotron a:hover {
@@ -81,6 +83,8 @@
   cursor: pointer;
   outline: inherit;
   text-decoration: none;
+  font-size: 1.3em;
+  line-height: 1.4em;
 }
 
 #jumbotron .btn-primary:hover {
