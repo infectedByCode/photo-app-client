@@ -1,7 +1,7 @@
 <template>
   <main id="home">
     <section id="jumbotron">
-      <h1>{{ msg }}</h1>
+      <h1>trippr</h1>
       <h2>Travel. Enjoy. Share.</h2>
       <button>Login</button>
       <router-link to="/signup">Not a member? Sign up here.</router-link>
@@ -11,13 +11,10 @@
 
 <script>
 export default {
-  name: "Home",
-  props: {
-    msg: String
-  }
+  name: 'Home'
 };
 </script>
 
 <style scoped>
-@import "../assets/styles/home.css";
+@import '../assets/styles/home.css';
 </style>
