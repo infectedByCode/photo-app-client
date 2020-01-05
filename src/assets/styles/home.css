@@ -55,19 +55,6 @@
   line-height: 1.7em;
 }
 
-#jumbotron button {
-  width: 40%;
-  margin: 1.5% auto;
-  background-color: var(--main-bg-color);
-  color: var(--alt-text-color);
-  border: none;
-  border-radius: 10px;
-  padding: 0.75%;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}
-
 #jumbotron a {
   outline: none;
   text-decoration: underline;
@@ -80,4 +67,22 @@
 
 #jumbotron a:visited {
   color: none;
+}
+
+#jumbotron .btn-primary {
+  width: 40%;
+  margin: 1.5% auto;
+  background-color: var(--main-bg-color);
+  color: var(--alt-text-color);
+  border: none;
+  border-radius: 10px;
+  padding: 0.75%;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-decoration: none;
+}
+
+#jumbotron .btn-primary:hover {
+  color: var(--main-text-color);
 }
