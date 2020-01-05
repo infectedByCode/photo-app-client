@@ -9,17 +9,7 @@
 
       <label>
         Email:
-        <input
-          type="email"
-          :class="{ valid: !this.errEmail && email !== '', invalid: this.errEmail }"
-          v-model="email"
-          @input="
-            e => {
-              checkEmail(e, email);
-            }
-          "
-          required
-        />
+        <input type="email" v-model="email" required />
       </label>
       <label>
         Password:
@@ -27,14 +17,13 @@
       </label>
 
       <button>Login</button>
-      <p class="error">{{ errEmail || errLogin }}</p>
+      <p class="error">{{ errLogin }}</p>
       <router-link v-if="errLogin.length" to="/signup">Not already registered? Click here</router-link>
     </form>
   </main>
 </template>
 
 <script>
-import { checkEmail } from "../utils/utils";
 import { loginUser } from "../auth";
 
 export default {
@@ -42,7 +31,6 @@ export default {
   data() {
     return {
       // Errors
-      errEmail: "",
       errLogin: "",
       // Inputs
       email: "",
@@ -50,7 +38,6 @@ export default {
     };
   },
   methods: {
-    checkEmail,
     loginUser
   }
 };
