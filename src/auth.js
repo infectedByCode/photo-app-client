@@ -19,7 +19,9 @@ function createUser(e, email, password, first_name, last_name, username) {
         this.$router.push('/');
       });
     })
-    .catch(err => err);
+    .catch(err => {
+      if (err) this.errRegister = 'Something has gone wrong. Please try again later.';
+    });
 }
 
 function loginUser(e, email, password) {

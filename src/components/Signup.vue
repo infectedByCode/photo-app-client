@@ -106,7 +106,8 @@
             errTakenUsername ||
             errEmail ||
             errPassword ||
-            errDB
+            errDB ||
+            errRegister
         }}
       </p>
     </form>
@@ -131,6 +132,7 @@ export default {
       errEmail: '',
       errPassword: '',
       errDB: '',
+      errRegister: '',
       // Inputs
       firstName: '',
       lastName: '',
