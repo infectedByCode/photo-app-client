@@ -24,6 +24,9 @@ function createUser(e, email, password, first_name, last_name, username) {
         this.confirmPassword = '';
       });
     })
+    .then(() => {
+      this.$router.push('/');
+    })
     .catch(err => err);
 }
 
