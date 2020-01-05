@@ -35,7 +35,9 @@ function loginUser(e, email, password) {
 
       this.$router.push('/');
     })
-    .catch(err => err);
+    .catch(err => {
+      if (err) this.errLogin = 'Something has gone wrong. Check your username and password';
+    });
 }
 
 function logoutUser() {
