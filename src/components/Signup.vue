@@ -1,17 +1,26 @@
 <template>
   <main id="auth">
-    <form>
+    <form
+      v-on:submit="
+        e => {
+          createUser(e, email, password, firstName, lastName, username);
+        }
+      "
+    >
       <h1 class="logo">
-        Register with
-        trippr
+        Register with trippr
       </h1>
       <label>
         First Name:
         <input
           type="text"
-          :class="{'valid': !errInvalidFirstName && firstName !== '', 'invalid' : errInvalidFirstName}"
+          :class="{ valid: !errInvalidFirstName && firstName !== '', invalid: errInvalidFirstName }"
           v-model="firstName"
-          @input="(e)=> {checkName(e, firstName)}"
+          @input="
+            e => {
+              checkName(e, firstName);
+            }
+          "
           required
         />
       </label>
@@ -19,9 +28,13 @@
         Last Name:
         <input
           type="text"
-          :class="{'valid': !errInvalidLastName && lastName !== '', 'invalid' : errInvalidLastName}"
+          :class="{ valid: !errInvalidLastName && lastName !== '', invalid: errInvalidLastName }"
           v-model="lastName"
-          @input="(e)=> {checkName(e, lastName)}"
+          @input="
+            e => {
+              checkName(e, lastName);
+            }
+          "
           required
         />
       </label>
@@ -29,9 +42,16 @@
         Username:
         <input
           type="text"
-          :class="{'valid': !errInvalidUsername && !errTakenUsername && username !== '', 'invalid' : errInvalidUsername || errTakenUsername}"
+          :class="{
+            valid: !errInvalidUsername && !errTakenUsername && username !== '',
+            invalid: errInvalidUsername || errTakenUsername
+          }"
           v-model="username"
-          @input="(e)=> {checkUsername(e, username)}"
+          @input="
+            e => {
+              checkUsername(e, username);
+            }
+          "
           required
         />
       </label>
@@ -39,9 +59,13 @@
         Email:
         <input
           type="email"
-          :class="{'valid': !this.errEmail && email !== '', 'invalid' : this.errEmail}"
+          :class="{ valid: !this.errEmail && email !== '', invalid: this.errEmail }"
           v-model="email"
-          @input="(e)=>{checkEmail(e, email)}"
+          @input="
+            e => {
+              checkEmail(e, email);
+            }
+          "
           required
         />
       </label>
@@ -49,9 +73,13 @@
         Password:
         <input
           type="password"
-          :class="{'valid': !this.errPassword && password !== '', 'invalid' : this.errPassword}"
+          :class="{ valid: !this.errPassword && password !== '', invalid: this.errPassword }"
           v-model="password"
-          @input="(e)=>{checkPasswords(e, password, confirmPassword)}"
+          @input="
+            e => {
+              checkPasswords(e, password, confirmPassword);
+            }
+          "
           required
         />
       </label>
@@ -59,77 +87,81 @@
         Confirm password:
         <input
           type="password"
-          :class="{'valid': !this.errPassword && password !== '', 'invalid' : this.errPassword}"
+          :class="{ valid: !this.errPassword && password !== '', invalid: this.errPassword }"
           v-model="confirmPassword"
-          @input="(e)=>{checkPasswords(e, password, confirmPassword)}"
+          @input="
+            e => {
+              checkPasswords(e, password, confirmPassword);
+            }
+          "
           required
         />
       </label>
       <button>Register!</button>
-      <p
-        class="error"
-      >{{errInvalidFirstName || errInvalidLastName || errInvalidUsername|| errTakenUsername || errEmail || errPassword}}</p>
+      <p class="error">
+        {{
+          errInvalidFirstName ||
+            errInvalidLastName ||
+            errInvalidUsername ||
+            errTakenUsername ||
+            errEmail ||
+            errPassword ||
+            errDB
+        }}
+      </p>
     </form>
   </main>
 </template>
 
 <script>
-import { auth } from "../firebaseConfig";
-import * as api from "../api";
-import {
-  checkName,
-  checkUsername,
-  checkEmail,
-  checkPasswords
-} from "../utils/utils";
+import * as api from '../api';
+import { checkName, checkUsername, checkEmail, checkPasswords } from '../utils/utils';
+import { createUser } from '@/auth.js';
 
 export default {
-  name: "Auth",
+  name: 'Auth',
   data() {
     return {
       users: [],
       // Errors
-      errInvalidUsername: "",
-      errTakenUsername: "",
-      errInvalidFirstName: "",
-      errInvalidLastName: "",
-      errEmail: "",
-      errPassword: "",
+      errInvalidUsername: '',
+      errTakenUsername: '',
+      errInvalidFirstName: '',
+      errInvalidLastName: '',
+      errEmail: '',
+      errPassword: '',
+      errDB: '',
       // Inputs
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: ""
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
     };
   },
   methods: {
     checkName,
     checkUsername,
     checkEmail,
-    checkPasswords
+    checkPasswords,
+    createUser
   },
   created() {
-    api.getAllUsers().then(users => {
-      this.users = users;
-    });
-  },
-  mounted() {
-    // Working.... Move to suitable method and work on locking down pages
-    auth
-      .createUserWithEmailAndPassword("me@me.com", "helloworld")
-      .then(response => {
-        this.$store.state.loggedIn = true;
-        alert(JSON.stringify(this.$store.state.loggedIn));
-        alert(JSON.stringify(response.user.uid));
+    api
+      .getAllUsers()
+      .then(users => {
+        this.users = users;
+        this.errDB = '';
       })
-      .catch(alert);
-  }
+      .catch(err => {
+        if (err) this.errDB = 'Something went wrong, please try again.';
+      });
+  },
+  mounted() {}
 };
 </script>
 
 <style scoped>
-@import "../assets/styles/auth.css";
+@import '../assets/styles/auth.css';
 </style>
-
