@@ -2,9 +2,11 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
 
-import Signup from '@/components/Signup';
 import Home from '@/components/Home';
+import Signup from '@/components/Signup';
 import Login from '@/components/Login';
+import Dashboard from '@/components/Dashboard';
+import NotFound from '@/components/NotFound';
 
 Vue.use(Router);
 
@@ -32,6 +34,19 @@ const router = new Router({
       meta: {
         requiresGuest: true
       }
+    },
+    {
+      path: '/account',
+      name: 'Dashboard',
+      component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/*',
+      name: 'NotFound',
+      component: NotFound
     }
   ]
 });
