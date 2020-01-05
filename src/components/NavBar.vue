@@ -1,10 +1,10 @@
 <template>
   <nav>
     <router-link class="logo" to="/">trippr</router-link>
-    <button @click="url = !url" v-if="!url">
+    <button @click="url = !url" v-if="!url && !this.$store.state.loggedIn">
       <router-link to="/login" key="login">Login</router-link>
     </button>
-    <button @click="url = !url" v-if="url">
+    <button @click="url = !url" v-if="url && !this.$store.state.loggedIn">
       <router-link to="/signup" key="signup">Register</router-link>
     </button>
   </nav>
@@ -12,18 +12,15 @@
 
 <script>
 export default {
-  name: "NavBar",
+  name: 'NavBar',
   data() {
     return {
-      url: window.location.pathname === "/login"
+      url: window.location.pathname === '/login'
     };
-  },
-  methods: {
-    // handleLink:funct
   }
 };
 </script>
 
 <style scoped>
-@import "../assets/styles/main.css";
+@import '../assets/styles/main.css';
 </style>
