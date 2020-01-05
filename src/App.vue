@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <router-view :msg="msg"></router-view>
+    <router-view></router-view>
+    <NavBar></NavBar>
   </div>
 </template>
 
 <script>
+import NavBar from "@/components/NavBar.vue";
 export default {
   name: "app",
-  components: {},
-  data() {
-    return {
-      msg: "trippr"
-    };
+  components: {
+    NavBar
   }
 };
 </script>
