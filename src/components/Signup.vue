@@ -157,8 +157,7 @@ export default {
       .catch(err => {
         if (err) this.errDB = 'Something went wrong, please try again.';
       });
-  },
-  mounted() {}
+  }
 };
 </script>
 
