@@ -9,6 +9,7 @@
 .error {
   color: lightcoral;
   font-size: 1.4em;
+  margin: 0.5% auto;
 }
 
 #auth {
