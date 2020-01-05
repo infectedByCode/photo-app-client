@@ -15,3 +15,10 @@ exports.postUser = async (user_id, email, first_name, last_name, username) => {
   const { data } = await axios.post(`${baseURL}/auth/signup`, { user_id, email, first_name, last_name, username });
   return data;
 };
+
+exports.getUserByID = async user_id => {
+  const {
+    data: { user }
+  } = await axios.get(`${baseURL}/users/${user_id}`);
+  return user;
+};
