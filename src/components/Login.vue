@@ -18,7 +18,11 @@
 
       <button>Login</button>
       <p class="error">{{ errLogin }}</p>
-      <router-link v-if="errLogin.length" to="/signup">Not already registered? Click here</router-link>
+      <router-link
+        v-if="errLogin.length"
+        @click.native="setLoading"
+        to="/signup"
+      >Not already registered? Click here</router-link>
     </form>
   </main>
 </template>
@@ -38,7 +42,19 @@ export default {
     };
   },
   methods: {
-    loginUser
+    loginUser,
+    setLoading: function() {
+      this.$store.state.isLoading = true;
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.$store.state.isLoading = false;
+    }, 100);
+  },
+  beforeRouteLeave(to, from, next) {
+    this.$store.state.isLoading = true;
+    next();
   }
 };
 </script>

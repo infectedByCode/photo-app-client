@@ -7,9 +7,7 @@
         }
       "
     >
-      <h1 class="logo">
-        Register with trippr
-      </h1>
+      <h1 class="logo">Register with trippr</h1>
       <label>
         First Name:
         <input
@@ -100,14 +98,14 @@
       <button>Register!</button>
       <p class="error">
         {{
-          errInvalidFirstName ||
-            errInvalidLastName ||
-            errInvalidUsername ||
-            errTakenUsername ||
-            errEmail ||
-            errPassword ||
-            errDB ||
-            errRegister
+        errInvalidFirstName ||
+        errInvalidLastName ||
+        errInvalidUsername ||
+        errTakenUsername ||
+        errEmail ||
+        errPassword ||
+        errDB ||
+        errRegister
         }}
       </p>
     </form>
@@ -115,31 +113,36 @@
 </template>
 
 <script>
-import * as api from '../api';
-import { checkName, checkUsername, checkEmail, checkPasswords } from '../utils/utils';
-import { createUser } from '../auth';
+import * as api from "../api";
+import {
+  checkName,
+  checkUsername,
+  checkEmail,
+  checkPasswords
+} from "../utils/utils";
+import { createUser } from "../auth";
 
 export default {
-  name: 'Auth',
+  name: "Auth",
   data() {
     return {
       users: [],
       // Errors
-      errInvalidUsername: '',
-      errTakenUsername: '',
-      errInvalidFirstName: '',
-      errInvalidLastName: '',
-      errEmail: '',
-      errPassword: '',
-      errDB: '',
-      errRegister: '',
+      errInvalidUsername: "",
+      errTakenUsername: "",
+      errInvalidFirstName: "",
+      errInvalidLastName: "",
+      errEmail: "",
+      errPassword: "",
+      errDB: "",
+      errRegister: "",
       // Inputs
-      firstName: '',
-      lastName: '',
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
     };
   },
   methods: {
@@ -154,15 +157,24 @@ export default {
       .getAllUsers()
       .then(users => {
         this.users = users;
-        this.errDB = '';
+        this.errDB = "";
       })
       .catch(err => {
-        if (err) this.errDB = 'Something went wrong, please try again.';
+        if (err) this.errDB = "Something went wrong, please try again.";
       });
+  },
+  mounted() {
+    setTimeout(() => {
+      this.$store.state.isLoading = false;
+    }, 100);
+  },
+  beforeRouteLeave(to, from, next) {
+    this.$store.state.isLoading = true;
+    next();
   }
 };
 </script>
 
 <style scoped>
-@import '../assets/styles/auth.css';
+@import "../assets/styles/auth.css";
 </style>
