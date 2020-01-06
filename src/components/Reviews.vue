@@ -2,6 +2,7 @@
   <section id="reviews-list">
     <h4 v-if="!reviews.length">There are currently no reviews for this location.</h4>
     <h4 v-if="reviews.length">Reviews</h4>
+    <ReviewForm v-if="showForm" :review="reviewData"></ReviewForm>
     <ul v-if="!errDB">
       <li class="review-card" v-for="review in reviews" v-bind:key="review.review_id">
         <img :src="review.image_url" alt />
@@ -14,7 +15,14 @@
             v-if="review.author === currentUser"
             @click="(e)=>{deleteReview(e, review.review_id)}"
           >DELETE</button>
-          <button class="btn-info" v-if="review.author === currentUser">EDIT</button>
+          <button
+            class="btn-info"
+            v-if="review.author === currentUser"
+            @click="()=> {
+              reviewData =review;
+              showForm = true
+              }"
+          >EDIT</button>
           <p class="error" v-if="errDB">{{errDB}}</p>
         </div>
       </li>
@@ -25,13 +33,19 @@
 <script>
 import * as api from "../api";
 // import { auth } from "../firebaseConfig";
+import ReviewForm from "@/components/ReviewForm.vue";
 
 export default {
   name: "Reviews",
+  components: {
+    ReviewForm
+  },
   data() {
     return {
       currentUser: "3c9f50cb-da22-4a7d-b105-246b6f14abf4", //auth.currentUser,
       reviews: [],
+      reviewData: "",
+      showForm: false,
       errDB: ""
     };
   },

@@ -96,3 +96,22 @@
   margin: 2.5% auto 0 auto;
   padding-bottom: 2.5%;
 }
+
+#review-form {
+  text-align: left;
+  width: 40%;
+}
+
+#review-form input,
+#review-form textarea {
+  display: block;
+  width: 100%;
+}
+
+#review-form .btn-primary {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  margin: 2% 2%;
+  border-radius: 10px;
+}
