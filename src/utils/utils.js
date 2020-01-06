@@ -51,4 +51,18 @@ function checkPasswords(e, password, confirmPassword) {
   else this.errPassword = '';
 }
 
-export { checkUsername, checkName, checkEmail, checkPasswords };
+function checkInputs(e, input) {
+  const validCharacters = /([^A-Z\d.,&$'" ])/gi;
+
+  if (!input.length || !validCharacters.test(input)) this.errInput = '';
+  else this.errInput = 'Please only use alphanumeric characters and special characters . , & \'" and space.';
+}
+
+function validateURL(e, url) {
+  // TODO
+  const urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-d][a-zA-Z\d-]+[a-zA-Z\d]\.[^\s]{2,}|www\.[a-zA-Z\d][a-zA-Z\d-]+[a-zA-Z\d]\.[^\s]{2,})/gi;
+
+  return urlRegex.test(url);
+}
+
+export { checkUsername, checkName, checkEmail, checkPasswords, checkInputs, validateURL };
