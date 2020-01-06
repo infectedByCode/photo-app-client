@@ -48,13 +48,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.$store.state.isLoading = false;
-    }, 100);
-  },
-  beforeRouteLeave(to, from, next) {
-    this.$store.state.isLoading = true;
-    next();
+    this.$store.state.isLoading = false;
   }
 };
 </script>

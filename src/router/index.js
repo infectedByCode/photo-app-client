@@ -6,6 +6,7 @@ import Home from '@/components/Home';
 import Signup from '@/components/Signup';
 import Login from '@/components/Login';
 import Dashboard from '@/components/Dashboard';
+import Locations from '@/components/Locations';
 import NotFound from '@/components/NotFound';
 
 Vue.use(Router);
@@ -39,6 +40,14 @@ const router = new Router({
       path: '/account',
       name: 'Dashboard',
       component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/locations',
+      name: 'Locations',
+      component: Locations,
       meta: {
         requiresAuth: true
       }

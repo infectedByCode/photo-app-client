@@ -4,6 +4,8 @@ import * as api from './api';
 function createUser(e, email, password, first_name, last_name, username) {
   e.preventDefault();
 
+  this.$store.state.isLoading = true;
+
   auth
     .createUserWithEmailAndPassword(email, password)
     .then(response => {
@@ -15,6 +17,7 @@ function createUser(e, email, password, first_name, last_name, username) {
       });
     })
     .catch(err => {
+      this.$store.state.isLoading = false;
       if (err === 'auth/email-already-in-use') this.errRegister = 'Email has already be registered.';
       if (err === 'auth/invalid-email') this.errRegister = 'Email is not valid.';
       if (err === 'auth/weak-password') this.errRegister = 'Your password is too weak.';
@@ -25,6 +28,8 @@ function createUser(e, email, password, first_name, last_name, username) {
 function loginUser(e, email, password) {
   e.preventDefault();
 
+  this.$store.state.isLoading = true;
+
   auth
     .signInWithEmailAndPassword(email, password)
     .then(response => {
@@ -33,11 +38,14 @@ function loginUser(e, email, password) {
       }
     })
     .catch(err => {
+      this.$store.state.isLoading = false;
       if (err) this.errLogin = 'Something has gone wrong. Check your username and password';
     });
 }
 
 function logoutUser() {
+  this.$store.state.isLoading = true;
+
   auth
     .signOut()
     .then(() => {
