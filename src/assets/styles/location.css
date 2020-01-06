@@ -50,25 +50,49 @@
   margin: 0 auto;
 }
 
-#reviews-list {
-  width: 80%;
-  margin: 2.5% auto 0 auto;
-  padding-bottom: 2.5%;
-}
-
 .review-card {
   display: flex;
   flex-direction: row;
-  background-color: hotpink;
-  margin: 0.5% auto;
+  background-color: var(--card-bg-color);
+  color: var(--main-text-color);
+  margin: 1.5% auto;
+  -webkit-box-shadow: 3px 15px 30px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 15px 30px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 15px 30px -10px rgba(0, 0, 0, 0.75);
+}
+
+.review-card h5 {
+  font-size: 1.6em;
+  line-height: 1.4em;
 }
 
 .review-card img {
   margin: 1% 5%;
-  width: 30%;
+  height: 300px;
 }
 
 .review-card div {
   width: 100%;
-  margin: 3%;
+  margin: 1% 2%;
+}
+
+.review-card div p {
+  font-size: 1.4em;
+  line-height: 1.4em;
+  margin: 1% 0;
+}
+
+.review-card .btn-danger,
+.review-card .btn-info {
+  box-sizing: border-box;
+  width: 40%;
+  height: 50px;
+  margin: 2% 2%;
+  border-radius: 10px;
+}
+
+#reviews-list {
+  width: 55%;
+  margin: 2.5% auto 0 auto;
+  padding-bottom: 2.5%;
 }

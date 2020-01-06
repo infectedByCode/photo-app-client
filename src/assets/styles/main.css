@@ -101,7 +101,6 @@ nav .menu-item {
 
 .btn-primary {
   background-color: var(--main-bg-color);
-  color: var(--alt-text-color);
 }
 
 .btn-danger {

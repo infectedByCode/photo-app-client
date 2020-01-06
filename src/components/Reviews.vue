@@ -6,25 +6,49 @@
       <li class="review-card" v-for="review in reviews" v-bind:key="review.review_id">
         <img :src="review.image_url" alt />
         <div>
-          <h1>{{review.review_title}}</h1>
+          <h5>{{review.review_title}}</h5>
           <p>{{review.review_body}}</p>
+          <p>Posted by {{review.username}}</p>
+          <button
+            class="btn-danger"
+            v-if="review.author === currentUser"
+            @click="(e)=>{deleteReview(e, review.review_id)}"
+          >DELETE</button>
+          <button class="btn-info" v-if="review.author === currentUser">EDIT</button>
+          <p class="error" v-if="errDB">{{errDB}}</p>
         </div>
       </li>
     </ul>
-    <p v-if="errDB" font-size="40em">{{errDB}}</p>
   </section>
 </template>
 
 <script>
 import * as api from "../api";
+// import { auth } from "../firebaseConfig";
 
 export default {
   name: "Reviews",
   data() {
     return {
+      currentUser: "3c9f50cb-da22-4a7d-b105-246b6f14abf4", //auth.currentUser,
       reviews: [],
       errDB: ""
     };
+  },
+  methods: {
+    deleteReview: function(e, review_id) {
+      api
+        .delteReviewByID(review_id)
+        .then(() => {
+          const index = this.reviews.findIndex(
+            review => review.review_id === review_id
+          );
+          this.reviews.splice(index, 1);
+        })
+        .catch(err => {
+          if (err) this.errDB = "Something went wrong, please try again";
+        });
+    }
   },
   created() {
     const location_id = window.location.pathname.split("/locations/")[1];
