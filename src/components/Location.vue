@@ -21,11 +21,6 @@
           Degrees
           Celsius
         </p>
-        <p class="link">
-          <a target="_blank" href="https://icons8.com/icons/set/rainy-weather">Rainy Weather</a>,
-          <a target="_blank" href="https://icons8.com/icons/set/snow-storm">Snow Storm</a> and other icons by
-          <a target="_blank" href="https://icons8.com">Icons8</a>
-        </p>
         <p v-if="errWeather">{{errWeather}}</p>
       </div>
     </section>
