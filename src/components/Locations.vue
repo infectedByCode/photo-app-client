@@ -34,7 +34,9 @@ export default {
       });
   },
   mounted() {
-    this.$store.state.isLoading = false;
+    setTimeout(() => {
+      this.$store.state.isLoading = false;
+    }, 300);
   }
 };
 </script>
