@@ -23,6 +23,11 @@
   font-family: 'Cabin', sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 :focus {
   outline: none;
 }
@@ -82,6 +87,21 @@ nav .menu-item {
   line-height: 1.2em;
   font-size: 3em;
   float: right;
+}
+
+.not-found {
+  min-height: 900px;
+}
+
+.not-found img {
+  width: 50%;
+  margin-top: 8%;
+}
+
+.not-found p {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 2em;
+  line-height: 2.4em;
 }
 
 #loading {
