@@ -4,13 +4,14 @@
 }
 
 #location-info {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding-top: 5%;
 }
 
-#location-info h1 {
+#location-info h1,
+#reviews-list h4 {
   font-family: 'Gochi Hand', cursive;
   font-size: 4em;
   line-height: 2.2em;
@@ -26,7 +27,7 @@
 }
 
 .weather-info {
-  display: flex;
+  display: grid;
   flex-direction: column;
   justify-content: center;
 }
@@ -36,7 +37,7 @@
   line-height: 2em;
 }
 .weather-info h3 {
-  font-size: 1.8em;
+  font-size: 1.6em;
   line-height: 2em;
 }
 
@@ -46,7 +47,28 @@
 }
 
 .weather-info img {
-  height: 100px;
-  width: 100px;
   margin: 0 auto;
+}
+
+#reviews-list {
+  width: 80%;
+  margin: 2.5% auto 0 auto;
+  padding-bottom: 2.5%;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: row;
+  background-color: hotpink;
+  margin: 0.5% auto;
+}
+
+.review-card img {
+  margin: 1% 5%;
+  width: 30%;
+}
+
+.review-card div {
+  width: 100%;
+  margin: 3%;
 }

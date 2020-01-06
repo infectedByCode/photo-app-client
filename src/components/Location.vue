@@ -29,6 +29,8 @@
         <p v-if="errWeather">{{errWeather}}</p>
       </div>
     </section>
+    <Reviews></Reviews>
+    <!-- Error display if location not found -->
     <div class="not-found" v-if="errDB">
       <img src="../assets/images/lostpage.jpg" alt="location not found image" />
       <p>{{errDB}}</p>
@@ -38,9 +40,13 @@
 
 <script>
 import * as api from "../api";
+import Reviews from "@/components/Reviews.vue";
 
 export default {
   name: "Location",
+  components: {
+    Reviews
+  },
   data() {
     return {
       location: {},
