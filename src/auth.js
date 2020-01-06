@@ -12,7 +12,8 @@ function createUser(e, email, password, first_name, last_name, username) {
       const uuid = response.user.uid;
 
       api.postUser(uuid, email, first_name, last_name, username).then(() => {
-        this.$router.go('/account');
+        this.$router.push('/account');
+
         return uuid;
       });
     })
@@ -34,7 +35,7 @@ function loginUser(e, email, password) {
     .signInWithEmailAndPassword(email, password)
     .then(response => {
       if (response) {
-        this.$router.go('/account');
+        this.$router.push('/locations');
       }
     })
     .catch(err => {
@@ -49,7 +50,7 @@ function logoutUser() {
   auth
     .signOut()
     .then(() => {
-      this.$router.go('/');
+      this.$router.push('/');
     })
     .catch(err => err);
 }
