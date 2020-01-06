@@ -1,0 +1,52 @@
+#location {
+  background: var(--alt-bg-color);
+  min-height: 1000px;
+}
+
+#location-info {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  width: 100%;
+  padding-top: 5%;
+}
+
+#location-info h1 {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 4em;
+  line-height: 2.2em;
+}
+
+#location-info img {
+  max-height: 400px;
+}
+
+#location-info .weather-info {
+  margin: 0.5% auto;
+  font-size: 1.2em;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.weather-info p {
+  font-size: 1.4em;
+  line-height: 2em;
+}
+.weather-info h3 {
+  font-size: 1.8em;
+  line-height: 2em;
+}
+
+.weather-info .link {
+  font-size: 0.8em;
+  line-height: 1.4em;
+}
+
+.weather-info img {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+}
