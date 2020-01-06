@@ -28,6 +28,16 @@ body {
   height: 100%;
 }
 
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
 :focus {
   outline: none;
 }
@@ -87,6 +97,31 @@ nav .menu-item {
   line-height: 1.2em;
   font-size: 3em;
   float: right;
+}
+
+.btn-primary {
+  background-color: var(--main-bg-color);
+  color: var(--alt-text-color);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+}
+
+.btn-primary:hover {
+  color: var(--main-text-color);
+}
+
+.btn-danger:hover {
+  background-color: #ff3545;
+}
+
+.btn-info:hover {
+  background-color: #17a6ba;
 }
 
 .not-found {
