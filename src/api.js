@@ -30,3 +30,10 @@ exports.updateUserByID = async (user_id, userData) => {
 
   return user;
 };
+
+exports.getAllLocations = async () => {
+  const {
+    data: { locations }
+  } = await axios.get(`${baseURL}/locations`);
+  return locations;
+};
