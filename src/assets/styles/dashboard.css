@@ -77,3 +77,59 @@
 #user-profile form .btn-primary:hover {
   color: var(--main-text-color);
 }
+
+@media only screen and (max-width: 1024px) {
+  #account-page {
+    min-width: 0;
+  }
+
+  #user-profile {
+    margin: 10% auto;
+  }
+
+  #user-profile label {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  #user-profile input {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  #user-profile form .btn-primary {
+    width: 60%;
+    margin: 1.5% auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #account-page {
+    position: absolute;
+  }
+
+  #user-profile {
+    margin: 20% auto;
+    width: 100%;
+  }
+
+  #user-profile h1 {
+    font-size: 3em;
+  }
+
+  #user-profile h2 {
+    font-size: 2em;
+  }
+
+  #user-profile label {
+    width: 100%;
+  }
+
+  #user-profile input {
+    max-width: 100%;
+  }
+
+  #user-profile form .btn-primary {
+    width: 80%;
+  }
+}
