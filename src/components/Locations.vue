@@ -12,7 +12,7 @@
       </label>
       <LocationCard :locations="filteredLocations || locations"></LocationCard>
     </section>
-    <p class="err">{{errDB}}</p>
+    <p class="error">{{errDB}}</p>
   </main>
 </template>
 

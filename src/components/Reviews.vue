@@ -59,7 +59,7 @@ export default {
     },
     editReview(e, review_id) {
       this.$router.push({
-        name: "ReviewForm",
+        name: "ReviewFormEdit",
         params: { review_id }
       });
     }
