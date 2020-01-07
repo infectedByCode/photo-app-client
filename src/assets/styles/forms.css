@@ -8,12 +8,25 @@
   position: fixed;
   top: 0;
   left: 0;
+  padding: 10% 0;
+}
+
+#review-form-page-post {
+  background: url('~@/assets/images/form.jpg') no-repeat fixed center;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  padding: 5% 0;
 }
 
 #review-form {
   background-color: var(--alt-bg-color-70);
-  width: 85%;
-  margin: 5% auto;
+  width: 75%;
+  margin: 0 auto;
 }
 
 #review-form h1 {

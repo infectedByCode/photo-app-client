@@ -1,5 +1,5 @@
 <template>
-  <main id="review-form-page">
+  <main :id="formStyle">
     <form id="review-form">
       <h1>{{review ? 'Update Review' : 'Create Review'}}</h1>
       <p class="error" v-if="errDB || errInput || errLocation">{{errDB || errLocation || errInput}}</p>
@@ -69,6 +69,7 @@ export default {
   data() {
     return {
       inputRegex: /[^a-z\d.,&'" ]/gi,
+      formStyle: "review-form-page-post",
       review: null,
       reviewCity: "",
       reviewCountry: "",
@@ -119,6 +120,7 @@ export default {
           this.review = review;
           this.reviewTitle = review.review_title;
           this.reviewBody = review.review_body;
+          this.formStyle = "review-form-page";
         })
         .catch(err => {
           if (err) this.errDB = "Something went wrong.";
