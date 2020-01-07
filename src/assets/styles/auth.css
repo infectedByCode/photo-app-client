@@ -64,3 +64,56 @@
   font-size: 3em;
   line-height: 1.2em;
 }
+
+@media only screen and (max-width: 1224px) {
+  #auth {
+    min-width: 0;
+  }
+
+  #auth form {
+    width: 80%;
+    margin: 12% auto;
+  }
+
+  #auth input,
+  #auth label {
+    width: 80%;
+  }
+
+  #auth button {
+    width: 60%;
+    margin: 1.5% auto;
+  }
+
+  #auth form h1.logo {
+    font-size: 2.4em;
+  }
+}
+
+@media only screen and (max-width: 488px) {
+  #auth {
+    position: relative;
+  }
+
+  #auth form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10% 0;
+    min-height: 900px;
+  }
+
+  #auth input,
+  #auth label {
+    width: 90%;
+  }
+
+  #auth button {
+    width: 80%;
+    height: 40px;
+    margin: 1.5% auto;
+  }
+
+  #auth form h1.logo {
+    font-size: 2.4em;
+  }
+}
