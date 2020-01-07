@@ -64,6 +64,7 @@
 .review-card img {
   margin: 1% 5%;
   height: 300px;
+  max-width: 300px;
 }
 
 .review-card div {
