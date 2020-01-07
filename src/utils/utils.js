@@ -58,7 +58,7 @@ function checkInputs(e, input) {
   else this.errInput = "Please only use alphanumeric characters and special characters . , & ' and space.";
 }
 function checkLocationName(e, input) {
-  const validCharacters = /([^A-Z\d' ])/gi;
+  const validCharacters = /([^A-Z\d()Å-ôé' ])/gi;
 
   if (!input.length || !validCharacters.test(input)) this.errLocation = '';
   else this.errLocation = "Please only use alphanumeric characters and special characters ' and space.";
