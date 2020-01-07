@@ -92,3 +92,66 @@
   margin: 2.5% auto 0 auto;
   padding-bottom: 2.5%;
 }
+
+@media only screen and (max-width: 1475px) {
+  .review-card {
+    width: 100%;
+  }
+
+  #reviews-list {
+    width: 80%;
+  }
+
+  #location-info h1,
+  #reviews-list h4 {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .review-card .btn-danger,
+  .review-card .btn-info {
+    display: block;
+    width: 80%;
+    margin: 2% auto;
+  }
+
+  .review-card img {
+    margin: 5%;
+    width: 40%;
+  }
+
+  .review-card div {
+    width: 100%;
+    margin: 5%;
+  }
+}
+
+@media only screen and (max-width: 1086px) {
+  .review-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .review-card .btn-danger,
+  .review-card .btn-info {
+    width: 50%;
+    margin: 2% auto;
+  }
+
+  .review-card img {
+    margin: 2% auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .review-card div {
+    width: 100%;
+    margin: 2% auto;
+  }
+
+  #reviews-list h4 {
+    font-size: 2.8em;
+  }
+}
