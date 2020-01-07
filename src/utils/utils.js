@@ -64,11 +64,11 @@ function checkLocationName(e, input) {
   else this.errLocation = "Please only use alphanumeric characters and special characters ' and space.";
 }
 
-function validateURL(e, url) {
-  // TODO
+function checkURL(e, url) {
   const urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-d][a-zA-Z\d-]+[a-zA-Z\d]\.[^\s]{2,}|www\.[a-zA-Z\d][a-zA-Z\d-]+[a-zA-Z\d]\.[^\s]{2,})/gi;
 
-  return urlRegex.test(url);
+  if (urlRegex.test(url) || !url.length) this.errURL = '';
+  else this.errURL = 'Please enter a valid URL';
 }
 
-export { checkUsername, checkName, checkEmail, checkPasswords, checkInputs, validateURL, checkLocationName };
+export { checkUsername, checkName, checkEmail, checkPasswords, checkInputs, checkURL, checkLocationName };
