@@ -1,6 +1,6 @@
 <template>
   <main :id="formStyle">
-    <form id="review-form">
+    <form id="review-form" @submit="(e)=> {handleFormSubmit(e)}">
       <h1>{{review ? 'Update Review' : 'Create Review'}}</h1>
       <p class="error" v-if="errDB || errInput || errLocation">{{errDB || errLocation || errInput}}</p>
       <label v-if="!review">
@@ -49,18 +49,20 @@
       </label>
       <label v-if="!review">
         Image
-        <input type="text" v-model="imageURL" />
+        <input
+          type="text"
+          :class="{ valid:! errURL && imageURL !== '' , invalid: errURL}"
+          v-model="imageURL"
+          @input="(e)=>{checkURL(e, imageURL)}"
+        />
       </label>
-      <button
-        class="btn-primary"
-        @click="(e)=> {handleFormSubmit(e)}"
-      >{{review ? 'Update' : 'Post'}}</button>
+      <button class="btn-primary">{{review ? 'Update' : 'Post'}}</button>
     </form>
   </main>
 </template>
 
 <script>
-import { checkInputs, checkLocationName } from "../utils/utils";
+import { checkInputs, checkLocationName, checkURL } from "../utils/utils";
 import { auth } from "../firebaseConfig";
 import * as api from "../api";
 
@@ -81,12 +83,14 @@ export default {
       locationID: window.location.pathname.split("locations/")[1],
       errDB: "",
       errInput: "",
-      errLocation: ""
+      errLocation: "",
+      errURL: ""
     };
   },
   methods: {
     checkInputs,
     checkLocationName,
+    checkURL,
     handleFormSubmit: function(e) {
       e.preventDefault();
 
@@ -107,6 +111,21 @@ export default {
           })
           .catch(err => {
             if (err) this.errDB = "Something went wrong, please try again.";
+          });
+      } else {
+        const postRequest = {
+          review_title: this.reviewTitle,
+          review_body: this.reviewBody,
+          image_url: this.imageURL,
+          author: this.author,
+          location_id: 2
+        };
+
+        api
+          .postReview(postRequest)
+          .then(alert)
+          .catch(err => {
+            alert(JSON.stringify(err));
           });
       }
     }
