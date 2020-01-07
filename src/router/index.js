@@ -63,9 +63,16 @@ const router = new Router({
       }
     },
     {
+      path: '/reviews/post',
+      name: 'ReviewForm',
+      component: ReviewForm,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
       path: '/reviews/:review_id/edit',
       name: 'ReviewForm',
-      // props: true,
       component: ReviewForm,
       meta: {
         requiresAuth: true
