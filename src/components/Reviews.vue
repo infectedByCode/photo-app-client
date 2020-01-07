@@ -31,13 +31,13 @@
 
 <script>
 import * as api from "../api";
-// import { auth } from "../firebaseConfig";
+import { auth } from "../firebaseConfig";
 
 export default {
   name: "Reviews",
   data() {
     return {
-      currentUser: "3c9f50cb-da22-4a7d-b105-246b6f14abf4", //auth.currentUser,
+      currentUser: auth.currentUser.uid,
       reviews: [],
       reviewID: "",
       errDB: ""
