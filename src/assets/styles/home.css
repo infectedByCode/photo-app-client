@@ -61,3 +61,32 @@
   font-size: 1.3em;
   line-height: 1.4em;
 }
+
+@media only screen and (max-width: 1024px) {
+  #home {
+    min-width: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #jumbotron {
+    margin: 25% auto;
+  }
+  #jumbotron h1 {
+    font-size: 3em;
+  }
+
+  #jumbotron h2 {
+    font-size: 1.5em;
+    line-height: 1.2em;
+  }
+
+  #jumbotron a {
+    font-size: 1.2em;
+    line-height: 1em;
+  }
+
+  #jumbotron .btn-primary {
+    width: 80%;
+  }
+}

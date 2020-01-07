@@ -2,10 +2,10 @@
   <nav>
     <router-link class="logo" to="/">trippr</router-link>
     <a class="menu-icon" @click="toggleMenu">menu</a>
-    <button v-if=" !loggedIn">
+    <button class="menu-item" v-if=" !loggedIn">
       <router-link to="/signup" key="signup">Register</router-link>
     </button>
-    <button v-if=" !loggedIn">
+    <button class="menu-item" v-if=" !loggedIn">
       <router-link to="/login" key="login">Login</router-link>
     </button>
     <button class="btn-primary menu-item" @click="logoutUser" v-if="loggedIn">logout</button>

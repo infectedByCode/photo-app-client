@@ -74,13 +74,13 @@ function checkURL(e, url) {
 function checkWindowResize() {
   const menuItems = document.querySelectorAll('.menu-item');
 
-  if (window.innerWidth < 800) {
+  if (window.innerWidth > 800) {
     menuItems.forEach(item => {
-      item.style.display = 'none';
+      item.style.display = 'block';
     });
   }
   menuItems.forEach(item => {
-    item.style.display = 'block';
+    item.style.display = 'else';
   });
 }
 
