@@ -5,6 +5,35 @@
       Title:
       <input
         type="text"
+        :class="{ valid: !/[^a-z\d]/gi.test(reviewCity) && reviewCity !== '' , invalid: /[^a-z\d ]/gi.test(reviewCity) }"
+        v-model="reviewCity"
+        @input="(e)=>{checkLocationName(e, reviewCity)}"
+      />
+    </label>
+    <label>
+      Title:
+      <input
+        type="text"
+        :class="{ valid: !/[^a-z\d]/gi.test(reviewCountry) && reviewCountry !== '' , invalid: /[^a-z\d ]/gi.test(reviewCountry) }"
+        v-model="reviewCountry"
+        @input="(e)=>{checkLocationName(e, reviewCountry)}"
+      />
+    </label>
+    <label>
+      Title:
+      <input
+        type="text"
+        :class="{ valid: !/[^a-z\d]/gi.test(reviewContinent) && reviewContinent !== '' , invalid: /[^a-z\d ]/gi.test(reviewContinent) }"
+        v-model="reviewContinent"
+        :placeholder="review.review_title"
+        @input="(e)=>{checkLocationName(e, reviewContinent)}"
+      />
+    </label>
+    <label>
+      Title:
+      <input
+        type="text"
+        :class="{ valid: !/[^a-z\d]/gi.test(reviewTitle) && reviewTitle !== '' , invalid: /[^a-z\d ]/gi.test(reviewTitle) }"
         v-model="reviewTitle"
         :placeholder="review.review_title"
         @input="(e)=>{checkInputs(e, reviewTitle)}"
@@ -13,6 +42,7 @@
     <label>
       Body:
       <textarea
+        :class="{ valid: !/[^a-z\d]/gi.test(reviewBody) && reviewBody !== '' , invalid: /[^a-z\d ]/gi.test(reviewBody) }"
         v-model="reviewBody"
         :placeholder="review.review_body"
         @input="(e)=>{checkInputs(e, reviewBody)}"
@@ -27,7 +57,7 @@
 </template>
 
 <script>
-import { checkInputs } from "../utils/utils";
+import { checkInputs, checkLocationName } from "../utils/utils";
 import { auth } from "../firebaseConfig";
 import * as api from "../api";
 
@@ -36,6 +66,9 @@ export default {
   props: ["review"],
   data() {
     return {
+      reviewCity: "",
+      reviewCountry: "",
+      reviewContinent: "",
       reviewTitle: "",
       reviewBody: "",
       imageURL: "",
@@ -47,6 +80,7 @@ export default {
   },
   methods: {
     checkInputs,
+    checkLocationName,
     handleFormSubmit: function(e) {
       e.preventDefault();
 
@@ -63,7 +97,7 @@ export default {
         api
           .updateReviewByID(current.review_id, review_title, review_body)
           .then(review => {
-            this.review = review;
+            if (review) this.$router.go();
           })
           .catch(err => {
             if (err) this.errDB = "Something went wrong, please try again.";
