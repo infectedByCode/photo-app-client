@@ -8,6 +8,7 @@ import Login from '@/components/Login';
 import Dashboard from '@/components/Dashboard';
 import Locations from '@/components/Locations';
 import Location from '@/components/Location';
+import ReviewForm from '@/components/ReviewForm';
 import NotFound from '@/components/NotFound';
 
 Vue.use(Router);
@@ -57,6 +58,15 @@ const router = new Router({
       path: '/locations/:location_id',
       name: 'Location',
       component: Location,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/reviews/:review_id/edit',
+      name: 'ReviewForm',
+      // props: true,
+      component: ReviewForm,
       meta: {
         requiresAuth: true
       }
