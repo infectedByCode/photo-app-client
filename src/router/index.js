@@ -72,7 +72,7 @@ const router = new Router({
     },
     {
       path: '/reviews/:review_id/edit',
-      name: 'ReviewForm',
+      name: 'ReviewFormEdit',
       component: ReviewForm,
       meta: {
         requiresAuth: true
