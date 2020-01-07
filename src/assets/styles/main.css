@@ -167,6 +167,14 @@ nav .menu-icon {
 }
 
 @media only screen and (max-width: 1250px) {
+  #loading {
+    min-width: 0;
+  }
+
+  #loading-img {
+    margin: 25% 0;
+  }
+
   nav .menu-item,
   nav .logo,
   nav .menu-icon {
