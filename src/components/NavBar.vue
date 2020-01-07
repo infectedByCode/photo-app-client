@@ -18,6 +18,7 @@
 <script>
 import { auth } from "../firebaseConfig";
 import { logoutUser } from "../auth";
+import { checkWindowResize } from "../utils/utils";
 
 export default {
   name: "NavBar",
@@ -28,6 +29,7 @@ export default {
   },
   methods: {
     logoutUser,
+    checkWindowResize,
     toggleMenu: function() {
       const menuItems = document.querySelectorAll(".menu-item");
 
@@ -38,9 +40,15 @@ export default {
       });
     }
   },
+  created() {
+    window.addEventListener("resize", checkWindowResize);
+  },
   beforeRouteLeave(to, from, next) {
     this.$store.state.isLoading = true;
     next();
+  },
+  destroyed() {
+    window.removeEventListener("resize", checkWindowResize);
   }
 };
 </script>

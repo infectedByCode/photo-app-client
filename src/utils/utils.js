@@ -71,4 +71,26 @@ function checkURL(e, url) {
   else this.errURL = 'Please enter a valid URL';
 }
 
-export { checkUsername, checkName, checkEmail, checkPasswords, checkInputs, checkURL, checkLocationName };
+function checkWindowResize() {
+  const menuItems = document.querySelectorAll('.menu-item');
+
+  if (window.innerWidth < 800) {
+    menuItems.forEach(item => {
+      item.style.display = 'none';
+    });
+  }
+  menuItems.forEach(item => {
+    item.style.display = 'block';
+  });
+}
+
+export {
+  checkUsername,
+  checkName,
+  checkEmail,
+  checkPasswords,
+  checkInputs,
+  checkURL,
+  checkLocationName,
+  checkWindowResize
+};
