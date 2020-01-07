@@ -37,7 +37,7 @@ function handleFormSubmit(e) {
         };
 
         api.postReview(postRequest).then(review => {
-          if (review) alert('posted');
+          if (review) this.$router.push(`../../locations/${review.location_id}`);
         });
       })
       .catch(err => {
