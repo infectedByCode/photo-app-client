@@ -7,8 +7,10 @@
 }
 
 #display {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 1% auto;
 }
 
 #display a {
@@ -38,8 +40,8 @@
 }
 
 #display img {
-  height: 200px;
-  width: 300px;
+  height: auto;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -57,4 +59,48 @@
   font-family: 'Gochi Hand', cursive;
   font-size: 3em;
   line-height: 2.2em;
+}
+
+@media only screen and (max-width: 1250px) {
+  #locations {
+    min-width: 0;
+  }
+
+  #display {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #locations section ul h1 {
+    font-size: 1.8em;
+  }
+
+  #locations section ul h2 {
+    font-size: 1.4em;
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  #display {
+    grid-template-columns: auto auto;
+  }
+
+  #locations a {
+    width: 80%;
+    margin: 1% auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1% 0 0 0;
+    padding: 0;
+  }
+
+  #locations a {
+    width: 70%;
+    margin: 1% auto;
+  }
 }

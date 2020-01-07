@@ -1,6 +1,7 @@
 <template>
   <nav>
     <router-link class="logo" to="/">trippr</router-link>
+    <a class="menu-icon" @click="toggleMenu">menu</a>
     <button v-if=" !loggedIn">
       <router-link to="/signup" key="signup">Register</router-link>
     </button>
@@ -26,7 +27,20 @@ export default {
     };
   },
   methods: {
-    logoutUser
+    logoutUser,
+    toggleMenu: function() {
+      const menuItems = document.querySelectorAll(".menu-item");
+
+      menuItems.forEach(item => {
+        item.style.display === "none"
+          ? (item.style.display = "block")
+          : (item.style.display = "none");
+      });
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.$store.state.isLoading = true;
+    next();
   }
 };
 </script>

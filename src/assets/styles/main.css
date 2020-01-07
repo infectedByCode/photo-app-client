@@ -99,6 +99,10 @@ nav .menu-item {
   float: right;
 }
 
+nav .menu-icon {
+  display: none;
+}
+
 .btn-primary {
   background-color: var(--main-bg-color);
 }
@@ -160,4 +164,26 @@ nav .menu-item {
 
 #loading h1 {
   font-family: 'Gochi Hand', cursive;
+}
+
+@media only screen and (max-width: 1250px) {
+  nav .menu-item,
+  nav .logo,
+  nav .menu-icon {
+    font-size: 2.4em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  nav .menu-item {
+    display: none;
+    width: 100%;
+    padding: 2% 0;
+  }
+
+  nav .menu-icon {
+    float: right;
+    display: block;
+    padding: 0 5%;
+  }
 }
