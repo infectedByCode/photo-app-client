@@ -98,17 +98,6 @@ export default {
     const review_id = this.$route.params.review_id;
     if (review_id) {
       this.fetchReviewByID(review_id);
-      // api
-      //   .getReviewByID(review_id)
-      //   .then(review => {
-      //     this.review = review;
-      //     this.reviewTitle = review.review_title;
-      //     this.reviewBody = review.review_body;
-      //     this.formStyle = "review-form-page";
-      //   })
-      //   .catch(err => {
-      //     if (err) this.errDB = "Something went wrong.";
-      //   });
     }
   },
   mounted() {
