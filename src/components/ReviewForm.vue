@@ -113,19 +113,30 @@ export default {
             if (err) this.errDB = "Something went wrong, please try again.";
           });
       } else {
-        const postRequest = {
-          review_title: this.reviewTitle,
-          review_body: this.reviewBody,
-          image_url: this.imageURL,
-          author: this.author,
-          location_id: 2
+        const locationRequest = {
+          city: this.reviewCity,
+          country: this.reviewCountry,
+          continent: this.reviewContinent,
+          image_url: this.imageURL
         };
 
         api
-          .postReview(postRequest)
-          .then(alert)
+          .postLocation(locationRequest)
+          .then(location_id => {
+            const postRequest = {
+              review_title: this.reviewTitle,
+              review_body: this.reviewBody,
+              image_url: this.imageURL,
+              author: this.author,
+              location_id: location_id
+            };
+
+            api.postReview(postRequest).then(review => {
+              if (review) alert("posted");
+            });
+          })
           .catch(err => {
-            alert(JSON.stringify(err));
+            if (err) this.errDB = err;
           });
       }
     }
