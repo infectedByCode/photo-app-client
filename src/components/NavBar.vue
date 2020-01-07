@@ -7,8 +7,10 @@
     <button v-if=" !loggedIn">
       <router-link to="/login" key="login">Login</router-link>
     </button>
-    <button class="btn-primary" @click="logoutUser" v-if="loggedIn">logout</button>
-    <router-link class="menu-item" to="/account" v-if="loggedIn">My Account</router-link>
+    <button class="btn-primary menu-item" @click="logoutUser" v-if="loggedIn">logout</button>
+    <router-link class="menu-item" to="/account" v-if="loggedIn">account</router-link>
+    <router-link class="menu-item" to="/review/post" v-if="loggedIn">add trip</router-link>
+    <router-link class="menu-item" to="/locations" v-if="loggedIn">locations</router-link>
   </nav>
 </template>
 

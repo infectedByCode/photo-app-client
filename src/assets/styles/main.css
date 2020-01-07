@@ -123,6 +123,10 @@ nav .menu-item {
   background-color: #17a6ba;
 }
 
+.menu-item.btn-primary:hover {
+  color: var(--alt-text-color);
+}
+
 .not-found {
   min-height: 900px;
 }
