@@ -1,9 +1,7 @@
 #locations {
   background-color: var(--alt-bg-color);
-  min-height: 100%;
+  min-height: 1000px;
   min-width: 1024px;
-  width: 100%;
-  height: auto;
   top: 0;
   left: 0;
 }
@@ -43,6 +41,12 @@
   height: 200px;
   width: 300px;
   margin: 0 auto;
+}
+
+#locations input {
+  width: 30%;
+  font-size: 1.4em;
+  line-height: 1.5em;
 }
 
 #locations section {

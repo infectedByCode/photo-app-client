@@ -2,7 +2,15 @@
   <main id="locations">
     <section>
       <h1>Trip Locations</h1>
-      <LocationCard :locations="locations"></LocationCard>
+      <label>
+        Search location:
+        <input
+          type="text"
+          v-model="filterText"
+          @input="(e)=> {filterLocation(e, filterText)}"
+        />
+      </label>
+      <LocationCard :locations="filteredLocations || locations"></LocationCard>
     </section>
     <p class="err">{{errDB}}</p>
   </main>
@@ -17,9 +25,22 @@ export default {
   components: {
     LocationCard
   },
+  methods: {
+    filterLocation: function(e, filterText) {
+      this.filterText = filterText;
+      this.filteredLocations = this.locations.filter(location => {
+        return (
+          location.city.toLowerCase().includes(this.filterText.toLowerCase()) ||
+          location.country.toLowerCase().includes(this.filterText.toLowerCase())
+        );
+      });
+    }
+  },
   data() {
     return {
       locations: [],
+      filteredLocations: this.locations,
+      filterText: "",
       errDB: ""
     };
   },
