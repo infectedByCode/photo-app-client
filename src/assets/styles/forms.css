@@ -35,6 +35,15 @@
   line-height: 1.6em;
 }
 
+#review-form select {
+  background-color: #fff;
+  margin: 0 auto;
+  display: block;
+  width: 80%;
+  font-size: 1.6em;
+  line-height: 1.6em;
+}
+
 #review-form label {
   font-size: 1.4em;
   line-height: 1.6em;
