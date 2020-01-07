@@ -12,23 +12,26 @@
           @input="(e)=>{checkLocationName(e, reviewCity)}"
         />
       </label>
-      <label v-if="!review">
+      <label>
         Country
-        <input
-          type="text"
-          :class="{ valid: !/[^a-z\d ]/gi.test(reviewCity) && reviewCountry !== '' , invalid: /[^a-z\d ]/gi.test(reviewCountry) }"
-          v-model="reviewCountry"
-          @input="(e)=>{checkLocationName(e, reviewCountry)}"
-        />
+        <select class="valid" v-model="reviewCountry" v-if="!review">
+          <option
+            v-for="country in countries"
+            v-bind:key="country"
+            v-bind:value="country"
+          >{{country}}</option>
+        </select>
       </label>
-      <label v-if="!review">
+      <label>
         Continent
-        <input
-          type="text"
-          :class="{ valid: !/[^a-z\d ]/gi.test(reviewContinent) && reviewContinent !== '' , invalid: /[^a-z\d ]/gi.test(reviewContinent) }"
-          v-model="reviewContinent"
-          @input="(e)=>{checkLocationName(e, reviewContinent)}"
-        />
+        <select v-model="reviewContinent" v-if="!review">
+          <option
+            class="valid"
+            v-for="continent in continents"
+            v-bind:key="continent"
+            v-bind:value="continent"
+          >{{continent}}</option>
+        </select>
       </label>
       <label>
         Title
@@ -65,6 +68,7 @@
 import { checkInputs, checkLocationName, checkURL } from "../utils/utils";
 import { handleFormSubmit, fetchReviewByID } from "../utils/db_methods";
 import { auth } from "../firebaseConfig";
+import * as api from "../api";
 
 export default {
   name: "ReviewForm",
@@ -72,6 +76,18 @@ export default {
     return {
       inputRegex: /[^a-z\d.,&'" ]/gi,
       formStyle: "review-form-page-post",
+      // Country for dropdowns
+      countries: [],
+      continents: [
+        "Africa",
+        "Antarctica",
+        "Asia",
+        "Europe",
+        "Oceania",
+        "North America",
+        "South America"
+      ],
+      // Inputs
       review: null,
       reviewCity: "",
       reviewCountry: "",
@@ -81,6 +97,7 @@ export default {
       imageURL: "",
       author: auth.currentUser.uid,
       locationID: window.location.pathname.split("locations/")[1],
+      // Errors
       errDB: "",
       errInput: "",
       errLocation: "",
@@ -99,6 +116,17 @@ export default {
     if (review_id) {
       this.fetchReviewByID(review_id);
     }
+
+    api
+      .getCountryData()
+      .then(countriesArray => {
+        countriesArray.forEach(country => {
+          this.countries.push(country.name);
+        });
+      })
+      .catch(err => {
+        if (err) this.errDB = "Unable to fetch country data";
+      });
   },
   mounted() {
     setTimeout(() => {
