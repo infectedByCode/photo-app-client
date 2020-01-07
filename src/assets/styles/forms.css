@@ -1,0 +1,50 @@
+#review-form-page {
+  background: url('~@/assets/images/form.jpg') no-repeat fixed center;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#review-form {
+  background-color: var(--alt-bg-color-70);
+  width: 85%;
+  margin: 5% auto;
+}
+
+#review-form h1 {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 2.6em;
+  line-height: 1.6em;
+}
+
+#review-form label {
+  font-size: 1.4em;
+  line-height: 1.6em;
+}
+
+#review-form input,
+#review-form textarea {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  font-size: 1.3em;
+  line-height: 1.2em;
+}
+
+#review-form textarea {
+  resize: none;
+  height: 250px;
+}
+
+#review-form .btn-primary {
+  box-sizing: border-box;
+  width: 50%;
+  height: 40px;
+  margin: 2% auto;
+  border-radius: 10px;
+}
