@@ -34,15 +34,15 @@
           />
         </label>
         <label>
-          Email:
+          Username:
           <input
-            type="email"
-            :class="{ valid: !this.errEmail && email !== '', invalid: this.errEmail }"
-            v-model="email"
-            :placeholder="user.email"
+            type="text"
+            :class="{ valid: !this.errUsername && username !== '', invalid: this.errUsername }"
+            v-model="username"
+            :placeholder="user.username"
             @input="
               e => {
-                checkEmail(e, email);
+                checkName(e, username);
               }
             "
           />
@@ -56,7 +56,7 @@
           "
         >Update</button>
       </form>
-      <p class="error">{{ err || errInvalidFirstName || errInvalidLastName || errEmail }}</p>
+      <p class="error">{{ err || errInvalidFirstName || errInvalidLastName || errUsername }}</p>
     </section>
   </main>
 </template>
@@ -73,12 +73,12 @@ export default {
       user: {},
       firstName: "",
       lastName: "",
-      email: "",
+      username: "",
       // Errors
       err: "",
       errInvalidFirstName: "",
       errInvalidLastName: "",
-      errEmail: ""
+      errUsername: ""
     };
   },
   methods: {
@@ -95,7 +95,7 @@ export default {
           ? this.user.first_name
           : this.firstName,
         last_name: !this.lastName.length ? this.user.last_name : this.lastName,
-        email: !this.email.length ? this.user.email : this.email
+        username: !this.username.length ? this.user.username : this.username
       };
 
       api
@@ -104,7 +104,7 @@ export default {
           this.user = user;
           this.firstName = "";
           this.lastName = "";
-          this.email = "";
+          this.username = "";
         })
         .catch(err => {
           if (err) this.err = "Something went wrong, please try again later.";
