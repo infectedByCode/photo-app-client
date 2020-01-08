@@ -20,4 +20,5 @@ yarn-error.log*
 *.sln
 *.sw?
 firebaseConfig.js
-src/endpoints.json
+endpoints.json
+.env
