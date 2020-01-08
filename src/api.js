@@ -102,7 +102,7 @@ exports.updateReviewByID = async (review_id, review_title, review_body) => {
 
 // OpenWeather API
 exports.getWeatherByLocation = async city => {
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NODE_ENV.WEATHER}`;
+  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.VUE_APP_WEATHER}`;
 
   const { data } = await axios.get(URL);
 
