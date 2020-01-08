@@ -43,7 +43,7 @@ In order to get the app running on your local machine, you will require the foll
 
 ### Cloning to local machine
 
-1. Go to the root of the repository here.
+1. Go to the root of the repository [here](https://github.com/infectedByCode/photo-app-client).
 2. Fork the repository to your GitHub account.
 3. Once forked, you will be given a git link. Copy this link.
 4. Open up a terminal on your local machine and type git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY and press Enter. Your local clone will then be created.
