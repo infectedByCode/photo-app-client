@@ -13,6 +13,7 @@ function createUser(e, email, password, first_name, last_name, username) {
 
       api.postUser(uuid, email, first_name, last_name, username).then(() => {
         this.$router.push('/account');
+        this.$router.go();
 
         return uuid;
       });
@@ -36,6 +37,7 @@ function loginUser(e, email, password) {
     .then(response => {
       if (response) {
         this.$router.push('/locations');
+        this.$router.go();
       }
     })
     .catch(err => {
